@@ -3,6 +3,9 @@ package com.coeus.scylla.executer;
 import com.coeus.scylla.ScyllaThreadPool;
 
 import java.lang.reflect.Method;
+import java.util.Collection;
+import java.util.List;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
@@ -17,9 +20,15 @@ public class ScyllaPoolExecuter {
         threadPool = new ScyllaThreadPool();
     }
 
+
     @SuppressWarnings("unchecked")
-    public static Future submit(Object instance, Method method, Object[] params){
+    static Future submit(Object instance, Method method, Object[] params) {
         return threadPool.submit(new ScyllaExecuter(instance, method, params));
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T> List<Future<T>> submitAsList(List<ScyllaExecuter> executers) throws InterruptedException {
+        return threadPool.invokeAll((Collection<? extends Callable<T>>) executers);
     }
 
 }

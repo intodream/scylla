@@ -21,15 +21,13 @@ public class ScyllaAsync {
             Method executeMethod = ScyllaClassLoader.getMethod(clazz, method, params);
             if (executeMethod == null) {
                 StringBuilder builder = new StringBuilder();
-                if (params == null || params.length == 0){
+                if (params == null || params.length == 0) {
                     builder.append("()");
                 } else {
                     builder.append("(");
-                    for (int i = 0;i < params.length;i++){
+                    for (int i = 0; i < params.length; i++) {
                         builder.append(params[i].getClass().getName());
-                        if (i < params.length - 1){
-                            builder.append(",");
-                        }
+                        if (i < params.length - 1) builder.append(",");
                     }
                     builder.append(")");
                 }
@@ -43,7 +41,7 @@ public class ScyllaAsync {
     }
 
     public static Future execute(Class<?> clazz, String method) throws ReflectiveOperationException {
-        return execute(clazz, method, "test");
+        return execute(clazz, method, null);
     }
 
     private static Future execute(Object instance, Method method, Object[] params) {

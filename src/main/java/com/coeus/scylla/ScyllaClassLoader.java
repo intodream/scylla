@@ -24,13 +24,13 @@ public class ScyllaClassLoader {
                         Class<?>[] parameterTypes = met.getParameterTypes();
                         int count = 0;
                         for (int i = 0; i < parameterCount; i++) {
-                            if (!parameterTypes[i].isAssignableFrom(params[i].getClass())){
+                            if (!parameterTypes[i].isAssignableFrom(params[i].getClass())) {
                                 break;
                             } else {
                                 count++;
                             }
                         }
-                        if (count == parameterCount){
+                        if (count == parameterCount) {
                             result = met;
                         }
                     }

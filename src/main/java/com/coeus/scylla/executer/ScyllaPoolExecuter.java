@@ -18,7 +18,7 @@ public class ScyllaPoolExecuter {
     }
 
     @SuppressWarnings("unchecked")
-    public Future submit(Object instance, Method method, Object[] params){
+    public static Future submit(Object instance, Method method, Object[] params){
         return threadPool.submit(new ScyllaExecuter(instance, method, params));
     }
 

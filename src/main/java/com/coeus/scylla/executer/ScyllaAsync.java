@@ -48,6 +48,10 @@ public class ScyllaAsync {
         return ScyllaPoolExecuter.submit(instance, method, params);
     }
 
+    public void test(){
+        System.out.println("xixixi");
+    }
+
     public static void main(String[] args) throws ReflectiveOperationException {
         ScyllaAsync.execute(ScyllaAsync.class, "test");
     }

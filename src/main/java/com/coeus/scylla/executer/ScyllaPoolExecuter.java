@@ -7,11 +7,6 @@ import com.coeus.scylla.config.YmlParser;
 
 import java.io.InputStream;
 import java.lang.reflect.Method;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
 
@@ -20,7 +15,7 @@ import java.util.concurrent.Future;
  */
 public class ScyllaPoolExecuter {
 
-    protected static ExecutorService threadPool;
+    private static ExecutorService threadPool;
 
     static {
         ThreadPoolConfig config;
@@ -44,11 +39,11 @@ public class ScyllaPoolExecuter {
     }
 
 //    @SuppressWarnings("unchecked")
-//    public static <T> List<Future<T>> submitAsList(List<ScyllaExecuter> executers) throws InterruptedException {
+//    public static List<Future> submitAsList(List<? extends Callable<Object>> executers) throws InterruptedException {
 //        if (threadPool.isShutdown()){
 //            throw new RuntimeException("Thread pool is shutdown");
 //        }
-//        return threadPool.invokeAll((Collection<? extends Callable<T>>) executers);
+//
 //    }
 
 }

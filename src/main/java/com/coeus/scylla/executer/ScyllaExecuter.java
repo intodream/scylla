@@ -6,7 +6,7 @@ import java.util.concurrent.Callable;
 /**
  * method invoke
  */
-public class ScyllaExecuter implements Callable {
+public class ScyllaExecuter<T> implements Callable<T> {
 
     private Object instance;        //class instance
     private Method method;          //Method
@@ -18,14 +18,15 @@ public class ScyllaExecuter implements Callable {
         this.params = params;
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public Object call(){
+    public T call(){
         if (!method.isAccessible()){
             method.setAccessible(Boolean.TRUE);
         }
 
         try{
-            return method.invoke(this.instance, this.params);
+            return (T) method.invoke(this.instance, this.params);
         } catch (Exception e){
             e.printStackTrace();
         }

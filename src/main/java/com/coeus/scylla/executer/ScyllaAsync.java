@@ -47,12 +47,4 @@ public class ScyllaAsync {
     private static Future execute(Object instance, Method method, Object[] params) {
         return ScyllaPoolExecuter.submit(instance, method, params);
     }
-
-    public void test(){
-        System.out.println("xixixi");
-    }
-
-    public static void main(String[] args) throws ReflectiveOperationException {
-        ScyllaAsync.execute(ScyllaAsync.class, "test");
-    }
 }

@@ -6,10 +6,10 @@
 
   <groupId>com.coeus</groupId>
   <artifactId>scylla</artifactId>
-  <version>sweet-1.0.0</version>
+  <version>1.0.0</version>
   <packaging>jar</packaging>
   <name>${project.artifactId}</name>
-  <description>like a brook</description>
+  <description>java async</description>
   <url>https://github.com/intodream</url>
 
   <properties>

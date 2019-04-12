@@ -1,7 +1,7 @@
 package com.coeus.scylla.executer;
 
 
-import com.coeus.scylla.ScyllaClassLoader;
+import com.coeus.scylla.ScyllaReflect;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -18,7 +18,7 @@ public class ScyllaAsync {
         try {
             Constructor constructor = clazz.getDeclaredConstructor();
             Object instance = constructor.newInstance();
-            Method executeMethod = ScyllaClassLoader.getMethod(clazz, method, params);
+            Method executeMethod = ScyllaReflect.getMethod(clazz, method, params);
             if (executeMethod == null) {
                 StringBuilder builder = new StringBuilder();
                 if (params == null || params.length == 0) {
@@ -41,10 +41,11 @@ public class ScyllaAsync {
     }
 
     public static Future execute(Class<?> clazz, String method) throws ReflectiveOperationException {
-        return execute(clazz, method, null);
+        return execute(clazz, method, (Object[]) null);
     }
 
     private static Future execute(Object instance, Method method, Object[] params) {
         return ScyllaPoolExecuter.submit(instance, method, params);
     }
+
 }

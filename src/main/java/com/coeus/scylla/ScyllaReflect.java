@@ -2,10 +2,8 @@ package com.coeus.scylla;
 
 import java.lang.reflect.Method;
 
-/**
- * classLoader
- */
-public class ScyllaClassLoader {
+
+public class ScyllaReflect {
 
     public static Method getMethod(Class clazz, String method, Object[] params) {
         Method[] methods = clazz.getDeclaredMethods();

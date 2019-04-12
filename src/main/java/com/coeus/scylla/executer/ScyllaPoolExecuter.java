@@ -15,18 +15,26 @@ import java.util.concurrent.Future;
  */
 public class ScyllaPoolExecuter {
 
-    private static ExecutorService threadPool;
+    public static ExecutorService threadPool;
 
     static {
-        ThreadPoolConfig config;
+        ThreadPoolConfig config = null;
+
+        //加载yml配置文件
         InputStream resourceAsStream = ScyllaPoolExecuter.class.getResourceAsStream("/scylla.yml");
         if (resourceAsStream != null) {
             config = YmlParser.parse(YmlParser.loadYml(resourceAsStream));
         } else {
+
+            //加载properties配置文件
             resourceAsStream = ScyllaPoolExecuter.class.getResourceAsStream("/scylla.properties");
-            config = PropertiesParser.parse(PropertiesParser.loadProperties(resourceAsStream));
+            if (resourceAsStream != null){
+                config = PropertiesParser.parse(PropertiesParser.loadProperties(resourceAsStream));
+            }
         }
-        threadPool = new ScyllaThreadPool(config.getCorePoolSize(), config.getMaxPoolSize(),
+
+        //如果没有加载到配置，则使用默认配置
+        threadPool = config == null ? new ScyllaThreadPool() : new ScyllaThreadPool(config.getCorePoolSize(), config.getMaxPoolSize(),
                 config.getKeepAliveTime(), config.getTimeUnit());
     }
 

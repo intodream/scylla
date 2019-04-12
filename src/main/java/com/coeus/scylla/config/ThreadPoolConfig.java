@@ -6,10 +6,13 @@ import java.util.concurrent.TimeUnit;
 
 public class ThreadPoolConfig {
 
+    private static final int DEFAULT_QUEUE_SIZE = 5000;
+
     private Integer corePoolSize;
     private Integer maxPoolSize;
     private Long keepAliveTime;
     private TimeUnit timeUnit;
+    private Integer queueSize;
 
 
     public Integer getCorePoolSize() {
@@ -47,6 +50,18 @@ public class ThreadPoolConfig {
             this.keepAliveTime = ScyllaThreadPool.KEEP_ALIVETIME;
         } else {
             this.keepAliveTime = Long.parseLong(keepAliveTime.toString());
+        }
+    }
+
+    public Integer getQueueSize() {
+        return queueSize;
+    }
+
+    public void setQueueSize(Integer queueSize) {
+        if (queueSize == null){
+            this.queueSize = DEFAULT_QUEUE_SIZE;
+        } else {
+            this.queueSize = queueSize;
         }
     }
 

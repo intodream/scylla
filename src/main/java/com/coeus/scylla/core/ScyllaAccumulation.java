@@ -5,7 +5,9 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class ScyllaAccumulation {
 
-    public static Queue scyllaCache = new LinkedBlockingQueue(5000);
+    public static Queue scyllaQueue = new LinkedBlockingQueue(5000);
+
+
 
 
 }

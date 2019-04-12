@@ -12,7 +12,7 @@ public class ScyllaExecuter<T> implements Callable<T> {
     private Method method;          //Method
     private Object[] params;        //method params
 
-    public ScyllaExecuter(Object instance, Method method, Object[] params){
+    ScyllaExecuter(Object instance, Method method, Object[] params){
         this.instance = instance;
         this.method = method;
         this.params = params;

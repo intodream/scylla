@@ -7,6 +7,9 @@ import com.coeus.scylla.executer.ScyllaPoolExecuter;
 import java.io.InputStream;
 import java.util.concurrent.LinkedBlockingQueue;
 
+/**
+ * init singleton ScyllaConfig, scyllaQueue, threadPool
+ */
 public class ScyllaRegistry {
 
     public static ScyllaConfig config;

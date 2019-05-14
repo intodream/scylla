@@ -1,6 +1,5 @@
 package com.coeus.scylla.core;
 
-import com.coeus.scylla.config.ScyllaRegistry;
 import com.coeus.scylla.executer.ScyllaExecuter;
 import com.coeus.scylla.executer.ScyllaPoolExecuter;
 

@@ -6,12 +6,12 @@ import java.io.InputStream;
 import java.util.Map;
 
 /**
- * load yml
+ * load yml config
  */
-public class YmlParser {
+class YmlParser {
 
     @SuppressWarnings("unchecked")
-    public static ScyllaConfig parse(Map<String,Object> map){
+    static ScyllaConfig parse(Map<String, Object> map){
         ScyllaConfig config = new ScyllaConfig();
         if (map != null){
             Map<String,Object> scylla = (Map<String,Object>) map.get("scylla");
@@ -25,7 +25,7 @@ public class YmlParser {
         return config;
     }
 
-    public static Map<String,Object> loadYml(InputStream inputStream){
+    static Map<String,Object> loadYml(InputStream inputStream){
         Map<String,Object> result = null;
         if (inputStream != null){
             Yaml yaml = new Yaml();

@@ -4,9 +4,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-public class PropertiesParser {
+/**
+ * load properties config
+ */
+class PropertiesParser {
 
-    public static ScyllaConfig parse(Properties properties){
+    static ScyllaConfig parse(Properties properties){
         ScyllaConfig config = new ScyllaConfig();
         String corePoolSize = properties.getProperty("scylla.corePoolSize");
         String maxPoolSize = properties.getProperty("scylla.maxPoolSize");
@@ -19,7 +22,7 @@ public class PropertiesParser {
         return config;
     }
 
-    public static Properties loadProperties(InputStream inputStream){
+    static Properties loadProperties(InputStream inputStream){
         Properties properties = new Properties();
         try {
             properties.load(inputStream);

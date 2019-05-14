@@ -20,6 +20,7 @@ class YmlParser {
                 config.setMaxPoolSize((Integer) scylla.get("maxPoolSize"));
                 config.setKeepAliveTime((Integer) scylla.get("keepAliveTime"));
                 config.setTimeUnit(scylla.get("timeUnit"));
+                config.setQueueSize((Integer) scylla.get("queueSize"));
             }
         }
         return config;

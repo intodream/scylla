@@ -15,10 +15,12 @@ class PropertiesParser {
         String maxPoolSize = properties.getProperty("scylla.maxPoolSize");
         String keepAliveTime = properties.getProperty("scylla.keepAliveTime");
         String timeUnit = properties.getProperty("scylla.timeUnit");
-        config.setCorePoolSize(corePoolSize == null ? null : Integer.parseInt(corePoolSize));
-        config.setMaxPoolSize(maxPoolSize == null ? null : Integer.parseInt(maxPoolSize));
-        config.setKeepAliveTime(keepAliveTime == null ? null : Integer.parseInt(keepAliveTime));
+        String queueSize = properties.getProperty("scylla.queueSize");
+        config.setCorePoolSize(corePoolSize == null ? null : Integer.valueOf(corePoolSize));
+        config.setMaxPoolSize(maxPoolSize == null ? null : Integer.valueOf(maxPoolSize));
+        config.setKeepAliveTime(keepAliveTime == null ? null : Integer.valueOf(keepAliveTime));
         config.setTimeUnit(timeUnit);
+        config.setQueueSize(queueSize == null ? null : Integer.valueOf(queueSize));
         return config;
     }
 

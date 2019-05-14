@@ -1,6 +1,5 @@
 package com.coeus.scylla.config;
 
-import com.coeus.scylla.ScyllaThreadPool;
 import com.coeus.scylla.core.ScyllaAccumulation;
 import com.coeus.scylla.executer.ScyllaPoolExecuter;
 
@@ -12,10 +11,8 @@ import java.util.concurrent.LinkedBlockingQueue;
  */
 public class ScyllaRegistry {
 
-    public static ScyllaConfig config;
-
     static {
-        config = ScyllaSingleton.INSTANCE.instance();
+        ScyllaConfig config = ScyllaSingleton.INSTANCE.instance();
         ScyllaAccumulation.scyllaQueue = new LinkedBlockingQueue<>(config.getQueueSize());
         ScyllaPoolExecuter.threadPool = new ScyllaThreadPool(config.getCorePoolSize(), config.getMaxPoolSize(),
                 config.getKeepAliveTime(), config.getTimeUnit());

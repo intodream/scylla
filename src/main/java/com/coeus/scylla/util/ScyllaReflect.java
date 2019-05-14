@@ -1,4 +1,4 @@
-package com.coeus.scylla;
+package com.coeus.scylla.util;
 
 import java.lang.reflect.Method;
 

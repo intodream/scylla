@@ -1,7 +1,5 @@
 package com.coeus.scylla.config;
 
-import com.coeus.scylla.ScyllaThreadPool;
-
 import java.util.concurrent.TimeUnit;
 
 public class ScyllaConfig {
@@ -15,11 +13,11 @@ public class ScyllaConfig {
     private Integer queueSize;
 
 
-    public Integer getCorePoolSize() {
+    Integer getCorePoolSize() {
         return corePoolSize;
     }
 
-    public void setCorePoolSize(Integer corePoolSize) {
+    void setCorePoolSize(Integer corePoolSize) {
         if (corePoolSize == null){
             this.corePoolSize = ScyllaThreadPool.CORE_POOLSIZE;
         } else {
@@ -28,11 +26,11 @@ public class ScyllaConfig {
 
     }
 
-    public Integer getMaxPoolSize() {
+    Integer getMaxPoolSize() {
         return maxPoolSize;
     }
 
-    public void setMaxPoolSize(Integer maxPoolSize) {
+    void setMaxPoolSize(Integer maxPoolSize) {
         if (maxPoolSize == null){
             this.maxPoolSize = ScyllaThreadPool.MAX_POOLSIZE;
         } else {
@@ -41,11 +39,11 @@ public class ScyllaConfig {
 
     }
 
-    public Long getKeepAliveTime() {
+    Long getKeepAliveTime() {
         return keepAliveTime;
     }
 
-    public void setKeepAliveTime(Integer keepAliveTime) {
+    void setKeepAliveTime(Integer keepAliveTime) {
         if (keepAliveTime == null){
             this.keepAliveTime = ScyllaThreadPool.KEEP_ALIVETIME;
         } else {
@@ -53,7 +51,7 @@ public class ScyllaConfig {
         }
     }
 
-    public Integer getQueueSize() {
+    Integer getQueueSize() {
         return queueSize;
     }
 
@@ -65,11 +63,11 @@ public class ScyllaConfig {
         }
     }
 
-    public TimeUnit getTimeUnit() {
+    TimeUnit getTimeUnit() {
         return timeUnit;
     }
 
-    public void setTimeUnit(Object timeUnit) {
+    void setTimeUnit(Object timeUnit) {
         if (timeUnit == null){
             this.timeUnit = ScyllaThreadPool.TIME_UNIT;
         } else {

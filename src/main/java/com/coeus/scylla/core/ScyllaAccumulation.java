@@ -47,7 +47,7 @@ public class ScyllaAccumulation {
         }
     }
 
-    public static ScyllaExecuter getTask(){
+    static ScyllaExecuter getTask(){
         return scyllaQueue.poll();
     }
 

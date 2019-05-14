@@ -1,4 +1,4 @@
-package com.coeus.scylla;
+package com.coeus.scylla.config;
 
 import java.util.concurrent.*;
 
@@ -7,17 +7,17 @@ import java.util.concurrent.*;
  */
 public class ScyllaThreadPool extends ThreadPoolExecutor {
 
-    public final static int CORE_POOLSIZE = 4;       //default core pool size
-    public final static int MAX_POOLSIZE = 10;       //default max pool size
-    public final static long KEEP_ALIVETIME = 30L;   //default keep aliveTime
-    public final static TimeUnit TIME_UNIT = TimeUnit.SECONDS;     //default time unit
+    final static int CORE_POOLSIZE = 4;       //default core pool size
+    final static int MAX_POOLSIZE = 10;       //default max pool size
+    final static long KEEP_ALIVETIME = 30L;   //default keep aliveTime
+    final static TimeUnit TIME_UNIT = TimeUnit.SECONDS;     //default time unit
 
     public ScyllaThreadPool() {
         this(CORE_POOLSIZE, MAX_POOLSIZE, KEEP_ALIVETIME, TIME_UNIT, new LinkedBlockingQueue<>(),
                 Executors.privilegedThreadFactory(), new ScyllaPolicy());
     }
 
-    public ScyllaThreadPool(Integer corePoolSize, Integer maxPoolSize, Long keepAliveTime, TimeUnit timeUnit) {
+    ScyllaThreadPool(Integer corePoolSize, Integer maxPoolSize, Long keepAliveTime, TimeUnit timeUnit) {
         this(corePoolSize, maxPoolSize, keepAliveTime, timeUnit, new LinkedBlockingQueue<>(),
                 Executors.privilegedThreadFactory(), new ScyllaPolicy());
     }
@@ -32,7 +32,7 @@ public class ScyllaThreadPool extends ThreadPoolExecutor {
      */
     public static class ScyllaPolicy implements RejectedExecutionHandler {
 
-        public ScyllaPolicy() {
+        ScyllaPolicy() {
         }
 
         //饱和策略，先抛出异常，后期做处理，做重新提交

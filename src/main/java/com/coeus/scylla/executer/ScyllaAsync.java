@@ -1,7 +1,7 @@
 package com.coeus.scylla.executer;
 
 
-import com.coeus.scylla.ScyllaReflect;
+import com.coeus.scylla.util.ScyllaReflect;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

@@ -4,9 +4,9 @@ import com.coeus.scylla.ScyllaThreadPool;
 
 import java.util.concurrent.TimeUnit;
 
-public class ThreadPoolConfig {
+public class ScyllaConfig {
 
-    private static final int DEFAULT_QUEUE_SIZE = 5000;
+    private static final int DEFAULT_QUEUE_SIZE = 1;
 
     private Integer corePoolSize;
     private Integer maxPoolSize;

@@ -3,7 +3,6 @@ package com.coeus.scylla.config;
 import org.yaml.snakeyaml.Yaml;
 
 import java.io.InputStream;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -12,8 +11,8 @@ import java.util.Map;
 public class YmlParser {
 
     @SuppressWarnings("unchecked")
-    public static ThreadPoolConfig parse(Map<String,Object> map){
-        ThreadPoolConfig config = new ThreadPoolConfig();
+    public static ScyllaConfig parse(Map<String,Object> map){
+        ScyllaConfig config = new ScyllaConfig();
         if (map != null){
             Map<String,Object> scylla = (Map<String,Object>) map.get("scylla");
             if (scylla != null){
